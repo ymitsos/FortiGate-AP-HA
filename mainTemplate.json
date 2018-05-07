@@ -926,7 +926,7 @@
             "value": "[variables('network_NIC_fg14_Name')]"
           },
           "SubnetRef": {
-            "value": "[variables('subnet3Ref')]"
+            "value": "[variables('subnet4Ref')]"
           },
           "privateIp": {
             "value": "[reference(concat('Microsoft.Network/networkInterfaces/', variables('network_NIC_fg14_Name'))).ipConfigurations[0].properties.privateIPAddress]"
@@ -961,7 +961,7 @@
             "value": "[variables('network_NIC_fg24_Name')]"
           },
           "SubnetRef": {
-            "value": "[variables('subnet3Ref')]"
+            "value": "[variables('subnet4Ref')]"
           },
           "privateIp": {
             "value": "[reference(concat('Microsoft.Network/networkInterfaces/', variables('network_NIC_fg24_Name'))).ipConfigurations[0].properties.privateIPAddress]"
