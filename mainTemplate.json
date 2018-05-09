@@ -1022,7 +1022,7 @@
           "computerName": "[variables('compute_VM_fg1_Name')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[base64(parameters('FGTAConf'))]"
+          "customData": "[parameters('FGTAConf')]"
         },
         "storageProfile": {
           "imageReference": {
@@ -1102,7 +1102,7 @@
           "computerName": "[variables('compute_VM_fg2_Name')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[base64(parameters('FGTBConf'))]"
+          "customData": "[parameters('FGTBConf')]"
         },
         "storageProfile": {
           "imageReference": {
