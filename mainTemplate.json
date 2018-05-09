@@ -55,6 +55,20 @@
         "description": "Virtual Machine size selection - must be F4 or other instance that supports 4 NICs"
       }
     },
+    "FGTAConf": {
+      "type": "string",
+      "defaultValue": "echo customData",
+      "metadata": {
+        "description": "String passed down to the Virtual Machine."
+      }
+    },
+    "FGTBConf": {
+      "type": "string",
+      "defaultValue": "echo customData",
+      "metadata": {
+        "description": "String passed down to the Virtual Machine."
+      }
+    },
     "publicIPNewOrExisting": {
       "type": "string",
       "defaultValue": "new",
@@ -1007,7 +1021,8 @@
         "osProfile": {
           "computerName": "[variables('compute_VM_fg1_Name')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminPassword": "[parameters('adminPassword')]",
+          "customData": "[base64(parameters('FGTAConf'))]"
         },
         "storageProfile": {
           "imageReference": {
@@ -1086,7 +1101,8 @@
         "osProfile": {
           "computerName": "[variables('compute_VM_fg2_Name')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminPassword": "[parameters('adminPassword')]",
+          "customData": "[base64(parameters('FGTBConf'))]"
         },
         "storageProfile": {
           "imageReference": {
