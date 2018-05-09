@@ -33,20 +33,25 @@ This second diagram shows what will happen in the event FortiGate A is shut down
         set gateway 10.0.1.1
         set device port1
       next
+      edit 2
+        set dst 10.0.5.0 255.255.255.0
+        set gateway 10.0.2.1
+        set device "port2"
+      next
     end
     config system interface
       edit "port1"
         set vdom "root"
         set mode static
         set ip 10.0.1.4 255.255.255.0
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping https ssh
         set description "external"
       next
       edit "port2"
         set vdom "root"
         set mode static
         set ip 10.0.2.4 255.255.255.0
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping probe-response capwap ftm
         set description "internal"
       next
       edit "port3"
@@ -97,6 +102,11 @@ This second diagram shows what will happen in the event FortiGate A is shut down
       edit 1
         set gateway 10.0.1.1
         set device port1
+      next
+      edit 2
+        set dst 10.0.5.0 255.255.255.0
+        set gateway 10.0.2.1
+      set device "port2"
       next
     end
     config system interface
