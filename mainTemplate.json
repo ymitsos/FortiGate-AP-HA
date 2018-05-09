@@ -90,7 +90,7 @@
     },
     "publicIPAddressName": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "FGTAPClusterPublicIP",
       "metadata": {
         "description": "Name of Public IP address element."
       }
@@ -104,7 +104,7 @@
     },
     "publicIPAddress2Name": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "FGTAMgmtPublicIP",
       "metadata": {
         "description": "Name of Public IP address element."
       }
@@ -118,7 +118,7 @@
     },
     "publicIPAddress3Name": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "FGTBMgmtPublicIP",
       "metadata": {
         "description": "Name of Public IP address element."
       }
@@ -209,7 +209,7 @@
     },
     "Subnet3Name": {
       "type": "string",
-      "defaultValue": "HASubnet",
+      "defaultValue": "HASyncSubnet",
       "metadata": {
         "description": "Subnet 3 Name"
       }
@@ -277,28 +277,28 @@
     "vmName": "[concat(parameters('FortiGateNamePrefix'),'-A')]",
     "vm2Name": "[concat(parameters('FortiGateNamePrefix'),'-B')]",
 
-    "routeTableName": "[concat(parameters('Subnet2Name'),'-',parameters('FortiGateNamePrefix'),'RouteTable')]",
+    "routeTableName": "FGTDefaultAPRouteTable",
     "subnet2KnownIP": "[parameters('FGT-A-IP-Subnet2')]",
     "routeTableId": "[resourceId('Microsoft.Network/routeTables',variables('routeTableName'))]",
 
     "compute_VM_fg1_Name": "[variables('vmName')]",
     "compute_VM_fg2_Name": "[variables('vm2Name')]",
 
-    "network_NIC_fg11_Name": "[concat(variables('vmName'),'Nic0')]",
+    "network_NIC_fg11_Name": "[concat(variables('vmName'),'-Nic0')]",
     "network_NIC_fg11_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg11_Name'))]",
-    "network_NIC_fg12_Name": "[concat(variables('vmName'),'Nic1')]",
+    "network_NIC_fg12_Name": "[concat(variables('vmName'),'-Nic1')]",
     "network_NIC_fg12_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg12_Name'))]",
-    "network_NIC_fg21_Name": "[concat(variables('vm2Name'),'Nic0')]",
+    "network_NIC_fg21_Name": "[concat(variables('vm2Name'),'-Nic0')]",
     "network_NIC_fg21_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg21_Name'))]",
-    "network_NIC_fg22_Name": "[concat(variables('vm2Name'),'Nic1')]",
+    "network_NIC_fg22_Name": "[concat(variables('vm2Name'),'-Nic1')]",
     "network_NIC_fg22_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg22_Name'))]",
-    "network_NIC_fg13_Name": "[concat(variables('vmName'),'Nic2')]",
+    "network_NIC_fg13_Name": "[concat(variables('vmName'),'-Nic2')]",
     "network_NIC_fg13_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg13_Name'))]",
-    "network_NIC_fg23_Name": "[concat(variables('vm2Name'),'Nic2')]",
+    "network_NIC_fg23_Name": "[concat(variables('vm2Name'),'-Nic2')]",
     "network_NIC_fg23_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg23_Name'))]",
-    "network_NIC_fg14_Name": "[concat(variables('vmName'),'Nic3')]",
+    "network_NIC_fg14_Name": "[concat(variables('vmName'),'-Nic3')]",
     "network_NIC_fg14_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg14_Name'))]",
-    "network_NIC_fg24_Name": "[concat(variables('vm2Name'),'Nic3')]",
+    "network_NIC_fg24_Name": "[concat(variables('vm2Name'),'-Nic3')]",
     "network_NIC_fg24_Id": "[resourceId('Microsoft.Network/networkInterfaces',variables('network_NIC_fg24_Name'))]",
 
     "publicIPID": "[resourceID(parameters('publicIPAddressResourceGroup'),'Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]",
