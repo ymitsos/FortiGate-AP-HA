@@ -155,7 +155,9 @@ Once, licensed and rebooted, you can proceed to configure the Azure settings to 
 
 For FortiGate A (Most of this config will be specific to your environment and so must be modified):
     
-    config system azure
+    config system sdn-connector
+      edit "AZConnector"
+      set type azure
       set tenant-id "942e801f-1c18-237a-8fa1-4e2bde2161ba"
       set subscription-id "2g95c73c-dg16-47a1-1536-65124d1a5e11"
       set resource-group "fortigateapha"
@@ -183,7 +185,9 @@ For FortiGate A (Most of this config will be specific to your environment and so
 
 For FortiGate B:
 
-    config system azure
+    config system sdn-connector
+      edit "AZConnector"
+      set type azure
       set tenant-id "942e801f-1c18-237a-8fa1-4e2bde2161ba"
       set subscription-id "2g95c73c-dg16-47a1-1536-65124d1a5e11"
       set resource-group "fortigateapha"
