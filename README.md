@@ -1,4 +1,4 @@
-## This template set is designe for A/P HA in Azure.  The following are created:
+## This template set is designed for A/P HA in Azure.  The following are created:
 	- vnet with five subnets
                 or uses an existing vnet of your selection.  If using an existing vnet, it must already have 5 subnets.
 	- three public IPs.  The first public IP is for cluster access to/through the active FortiGate.  The other two PIPs are for Management access
