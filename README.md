@@ -27,9 +27,6 @@ FortiGate-A:
     
 The following is a sample config, based on the defaults in this template set.  If copying and pasting, be sure that there are no tabs or other characters that will confuse the FGT CLI.
     
-    config system global
-      set admintimeout 480
-    end
     config router static
       edit 1
         set gateway 10.0.1.1
@@ -43,31 +40,26 @@ The following is a sample config, based on the defaults in this template set.  I
     end
     config system interface
       edit "port1"
-        set vdom "root"
         set mode static
         set ip 10.0.1.4 255.255.255.0
-        set allowaccess ping https ssh
         set alias "external"
       next
       edit "port2"
-        set vdom "root"
         set mode static
         set ip 10.0.2.4 255.255.255.0
-        set allowaccess ping ssh snmp fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping ssh
         set alias "internal"
       next
       edit "port3"
-        set vdom "root"
         set mode static 
         set ip 10.0.3.4 255.255.255.240 
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping probe-response
         set alias "hasyncport"
       next
       edit "port4"
-        set vdom "root"
         set mode static
         set ip 10.0.4.4 255.255.255.240
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping https ssh snmp fgfm radius-acct capwap ftm
         set alias "management"
       next
     end
@@ -116,27 +108,26 @@ Complete a similar configuration on FortiGate B with different IPs and priority:
         set vdom "root"
         set mode static
         set ip 10.0.1.5 255.255.255.0
-        set allowaccess ping https ssh
         set alias "external"
       next
       edit "port2"
         set vdom "root"
         set mode static
         set ip 10.0.2.5 255.255.255.0
-        set allowaccess ping ssh snmp fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping ssh
         set alias "internal"
       next
       edit "port3"
         set mode static
         set ip 10.0.3.5 255.255.255.240
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping probe-response
         set alias "hasyncport"
       next
       edit "port4"
         set vdom "root"
         set mode static
         set ip 10.0.4.5 255.255.255.240
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping https ssh snmp fgfm radius-acct capwap ftm
         set alias "management"
       next
     end
