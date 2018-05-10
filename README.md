@@ -20,10 +20,12 @@ This second diagram shows what will happen in the event FortiGate A is shut down
 
 ### In order to configure FortiGates:
 
-    FortiGate-A:
+FortiGate-A:
     Connect via ssh to the cluster IP of port1 or private IP if already connected to the vnet via ExpressRoute or Azure VPN (both of these IPs can be obtained from the portal)
     Configure FortiGate A so that all four interfaces have static IPs (which match those assigned in the Azure portal).  Be sure to setup a manual gateway first.  This should point to the first IP address of subnet 1.  
-    Next configure the HA settings.  The following is a sample config, based on the defaults in this template set.  If copying and pasting, be sure that there are no tabs or other characters that will confuse the FGT CLI.
+    Next configure the HA settings.  
+    
+The following is a sample config, based on the defaults in this template set.  If copying and pasting, be sure that there are no tabs or other characters that will confuse the FGT CLI.
     
     config system global
       set admintimeout 480
@@ -89,11 +91,11 @@ This second diagram shows what will happen in the event FortiGate A is shut down
       set unicast-hb-peerip 10.0.3.5
     end
     
-    Once complete with this config on FGT A, you may need to restablish the SSH session.  You can do so to the cluster IP again, or connect the the public IP for management set to port4.  From that SSH session connect to FortiGate B port1 via ssh:
+Once complete with this config on FGT A, you may need to restablish the SSH session.  You can do so to the cluster IP again, or connect the the public IP for management set to port4.  From that SSH session connect to FortiGate B port1 via ssh:
     
-    execute ssh 10.0.1.5
+execute ssh 10.0.1.5
     
-    Complete a similar configuration on FortiGate B with different IPs and priority:
+Complete a similar configuration on FortiGate B with different IPs and priority:
     
     config system global
       set admintimeout 480
@@ -157,9 +159,9 @@ This second diagram shows what will happen in the event FortiGate A is shut down
       set unicast-hb-peerip 10.0.3.4
     end
 
-Next you need to apply the license unless you are using PAYG licensing.  To apply BYOL licenses, first register the licenses with http://support.fortinet.com and download the .lic files.  Note, these files may not work until 30 minutes after it's initiall created.
+Now you will need to apply the license unless you are using PAYG licensing.  To apply BYOL licenses, first register the licenses with http://support.fortinet.com and download the .lic files.  Note, these files may not work until 30 minutes after they're initially created.
 
-Next, connect via HTTPS to both FortiGates via their management addresses and upload unique license files for each.
+Next, connect via HTTPS to both FortiGates via their management addresses and upload a unique license file to each.
 
 Once, licensed and rebooted, you can proceed to configure the Azure settings to enable the cluster IP and route table failover:
 
