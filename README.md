@@ -48,13 +48,15 @@ The following is a sample config, based on the defaults in this template set.  I
         set ip 10.0.1.4 255.255.255.0
         set allowaccess ping https ssh
         set description "external"
+        set alias "external"
       next
       edit "port2"
         set vdom "root"
         set mode static
         set ip 10.0.2.4 255.255.255.0
-        set allowaccess ping probe-response capwap ftm
+        set allowaccess ping ssh snmp fgfm radius-acct probe-response capwap ftm
         set description "internal"
+        set alias "internal"
       next
       edit "port3"
         set vdom "root"
@@ -62,6 +64,7 @@ The following is a sample config, based on the defaults in this template set.  I
         set ip 10.0.3.4 255.255.255.240 
         set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
         set description "hasyncport"
+        set alias "hasyncport"
       next
       edit "port4"
         set vdom "root"
@@ -69,6 +72,7 @@ The following is a sample config, based on the defaults in this template set.  I
         set ip 10.0.4.4 255.255.255.240
         set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
         set description "management"
+        set alias "management"
       next
     end
     
@@ -116,21 +120,24 @@ Complete a similar configuration on FortiGate B with different IPs and priority:
         set vdom "root"
         set mode static
         set ip 10.0.1.5 255.255.255.0
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping https ssh
         set description "external"
+        set alias "external"
       next
       edit "port2"
         set vdom "root"
         set mode static
         set ip 10.0.2.5 255.255.255.0
-        set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
+        set allowaccess ping ssh snmp fgfm radius-acct probe-response capwap ftm
         set description "internal"
+        set alias "internal"
       next
       edit "port3"
         set mode static
         set ip 10.0.3.5 255.255.255.240
         set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
         set description "hasyncport"
+        set alias "hasyncport"
       next
       edit "port4"
         set vdom "root"
@@ -138,6 +145,7 @@ Complete a similar configuration on FortiGate B with different IPs and priority:
         set ip 10.0.4.5 255.255.255.240
         set allowaccess ping https ssh snmp http telnet fgfm radius-acct probe-response capwap ftm
         set description "management"
+        set alias "management"
       next
     end
     config system ha
