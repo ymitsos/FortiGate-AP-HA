@@ -89,9 +89,6 @@ execute ssh 10.0.1.5
     
 Complete a similar configuration on FortiGate B with different IPs and priority:
     
-    config system global
-      set admintimeout 480
-    end
     config router static
       edit 1
         set gateway 10.0.1.1
@@ -124,7 +121,6 @@ Complete a similar configuration on FortiGate B with different IPs and priority:
         set alias "hasyncport"
       next
       edit "port4"
-        set vdom "root"
         set mode static
         set ip 10.0.4.5 255.255.255.240
         set allowaccess ping https ssh snmp fgfm radius-acct capwap ftm
