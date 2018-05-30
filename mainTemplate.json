@@ -307,8 +307,8 @@
 
     "NSGName": "[concat(parameters('FortiGateNamePrefix'),'-',uniqueString(resourceGroup().id),'-NSG')]",
 
-    "FGTAConf": "[concat('config sys global', '\n', 'set hostname FortiGate1', '\n', 'set admintimeout 10', '\n', 'end')]",
-    "FGTBConf": "config sys global \n set hostname FortiGate2 \n set admintimeout 10 \n end",
+    "FGTAConf": "[concat('config sys global', '\n', 'set hostname FortiGate1', '\n', 'set admintimeout 10', '\n', 'end', '\n')]",
+    "FGTBConf": "[concat('config sys global', '\n', 'set hostname FortiGate2', '\n', 'set admintimeout 10', '\n', 'end', '\n')]",
 
     "updateIPURI": "[concat(parameters('artifactsBaseURL'),'/update-nic.json')]",
     "updateIP2URI": "[concat(parameters('artifactsBaseURL'),'/update-nic2.json')]"
