@@ -307,6 +307,9 @@
 
     "NSGName": "[concat(parameters('FortiGateNamePrefix'),'-',uniqueString(resourceGroup().id),'-NSG')]",
 
+    "FGTAConf": "[concat('config sys global', '\n', 'set hostname FortiGate1', '\n', 'set admintimeout 10', '\n', 'end')]",
+    "FGTBConf": "config sys global \n set hostname FortiGate2 \n set admintimeout 10 \n end",
+
     "updateIPURI": "[concat(parameters('artifactsBaseURL'),'/update-nic.json')]",
     "updateIP2URI": "[concat(parameters('artifactsBaseURL'),'/update-nic2.json')]"
   },
@@ -1007,7 +1010,8 @@
         "osProfile": {
           "computerName": "[variables('compute_VM_fg1_Name')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminPassword": "[parameters('adminPassword')]",
+          "customData": "[base64(variables('FGTAConf'))]"
         },
         "storageProfile": {
           "imageReference": {
@@ -1086,7 +1090,8 @@
         "osProfile": {
           "computerName": "[variables('compute_VM_fg2_Name')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminPassword": "[parameters('adminPassword')]",
+          "customData": "[base64(variables('FGTBConf'))]"
         },
         "storageProfile": {
           "imageReference": {
