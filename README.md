@@ -216,6 +216,6 @@ For FortiGate B:
 
 
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffortinetsolutions%2FAzure-Templates%2Fmaster%2FFortiGate%2FActive-Passive-HA-w-Azure-LBs%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffortinetclouddev%2FFortiGate-AP-HA%2FE-Y_PrivateOffer_AP-HA_w_LBs%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
