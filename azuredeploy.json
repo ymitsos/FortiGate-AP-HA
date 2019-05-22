@@ -154,7 +154,7 @@
         "existing"
       ],
       "metadata": {
-        "description": "Identify whether to use a new or existing vnet"
+        "description": "Identify whether to use a new or existing vnet. NOTE: if using an existing VNET, all 5 subnets selected below, must already be created prior to deploying this template."
       }
     },
     "vnetName": {
