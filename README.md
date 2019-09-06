@@ -213,3 +213,10 @@ For FortiGate B:
     end
 
 
+#### Azure Stack deployment
+
+Similarly to Azure configuration an active-passive topology is also supported in Azure Stack. Active-Active is not yet available as Azure Stack lacks the Standard Load Balancer SKU needed. 
+To enable the sdn-connector, the following two optional parameters must be defined. Namely, login-endpoint & resource-url. 
+
+ - login-endpoint: This is a URL in the form "https://login.microsoftonline.com/AAD-DirectoryID". To obtain the ID value you need to login to the Azure portal (https://portal.azure.com/) with the user's credential and copy the value "Directory ID" which may be found under the "Azure Active Directory" -> "Properties" tab.
+ - resource-url This is a URL in the form "https://management.YOURTENANTNAME.onmicrosoft.com/ID". The ID may be obtained by examining the output of the following curl command: "https://management.REGION.AZURESTACK/metadata/endpoints?api-version=2015-06-15". The ID required is the field: authentication{'audiences'}[0].
